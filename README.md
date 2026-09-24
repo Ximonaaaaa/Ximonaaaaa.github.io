@@ -1,3 +1,13 @@
+## Author
+
+Simona Liu
+
+## Acknowledgement
+
+This repository is based on
+https://github.com/varadbhogayata/varadbhogayata.github.io.
+
+## ------- Original README --------
 # Personal Portfolio ⚡️ 
 > A clean, beautiful, responsive portfolio template for Software Developers!
 
