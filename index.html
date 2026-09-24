@@ -11,7 +11,7 @@
   <!-- Font Awesome Icon - CSS-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
   <!-- Custom Styles-->
-  <link rel="stylesheet" href="/assets/css/style.css?v=4" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=8" />
   <title>Simona Liu | Computer Engineering Student</title>
 
   <!-- Open Graph-->
@@ -100,6 +100,12 @@
       </li>
 
       <li class="bold">
+        <a aria-label="Navigate to the Places Travelled section" href="#places"
+          class="waves-effect waves-dark teal-text"><i
+            class="mdi-maps-place small"></i><span>Places Travelled</span></a>
+      </li>
+
+      <li class="bold">
         <!-- 
         1. mdi-communication-contacts
         2. mdi-content-mail
@@ -152,6 +158,11 @@
       <li class="bold">
         <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
             class="mdi-social-school small"></i><span>Education</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Places Travelled section" href="#places"
+          class="waves-effect waves-dark teal-text"><i
+            class="mdi-maps-place small"></i><span>Places</span></a>
       </li>
       <li class="bold">
         <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
@@ -329,6 +340,32 @@
               Structures, Control Systems, Computer Organization, Software Design, Accounting, and Finance</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="places" class="section scrollspy">
+      <h3 class="page-title white-text teal">Places Travelled</h3>
+      <div class="container">
+        <p class="places-intro">Three cities I visited during the past year.</p>
+        <div class="card travel-map-card">
+          <div class="card-content">
+            <span class="card-title teal-text">Explore the Cities</span>
+            <div class="map-location-links" role="group" aria-label="Choose a city to display on the map">
+              <a href="https://maps.google.com/maps?q=Seoul%2C%20South%20Korea&amp;z=10&amp;output=embed"
+                target="travel-map">Seoul</a>
+              <a href="https://maps.google.com/maps?q=Los%20Angeles%2C%20California%2C%20USA&amp;z=10&amp;output=embed"
+                target="travel-map">Los Angeles</a>
+              <a href="https://maps.google.com/maps?q=Chongqing%2C%20China&amp;z=10&amp;output=embed"
+                target="travel-map">Chongqing</a>
+            </div>
+          </div>
+          <div class="place-map">
+            <iframe name="travel-map" title="Interactive map of recently visited cities"
+              src="https://maps.google.com/maps?q=Seoul%2C%20South%20Korea&amp;z=10&amp;output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+
       </div>
     </section>
 
