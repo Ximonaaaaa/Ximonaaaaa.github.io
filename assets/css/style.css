@@ -568,6 +568,35 @@ a.hoverline:hover {
   text-align: center;
 }
 
+.project-controls {
+  margin: -25px 0 35px;
+  text-align: center;
+}
+
+.load-more-btn {
+  background: var(--color-highlight);
+  border: 2px solid var(--color-highlight);
+  border-radius: 5px;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  min-height: 48px;
+  padding: 10px 28px;
+}
+
+.load-more-btn:hover,
+.load-more-btn:focus {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  outline: 3px solid var(--color-primary-soft);
+  outline-offset: 2px;
+}
+
+.load-more-btn[hidden] {
+  display: none;
+}
+
 .places-intro {
   color: var(--color-muted);
   margin: -20px 0 28px;

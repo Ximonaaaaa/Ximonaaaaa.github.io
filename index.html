@@ -11,7 +11,7 @@
   <!-- Font Awesome Icon - CSS-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
   <!-- Custom Styles-->
-  <link rel="stylesheet" href="/assets/css/style.css?v=8" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=9" />
   <title>Simona Liu | Computer Engineering Student</title>
 
   <!-- Open Graph-->
@@ -265,40 +265,10 @@
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title teal-text">Graphical User Interface System (GIS)</span>
-            <p class="brown-text">C++, CSS | January 2024 - April 2024</p>
-            <ul>
-              <li>Led a team developing a user-friendly mapping system using OpenStreetMap data.</li>
-              <li>Designed responsive map interactions and pop-out information windows with a 0.3-second response time.</li>
-              <li>Placed in the top 10 for a travelling-salesman optimization using A*, Dijkstra, and ant colony optimization.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title teal-text">Bank Card Recognition</span>
-            <p class="brown-text">Python, YOLO, CRNN | August 2024 - December 2024</p>
-            <ul>
-              <li>Developed a deep learning pipeline to recognize card numbers from bank card photos.</li>
-              <li>Expanded the dataset from 700 to 3,000 images through preprocessing and augmentation, improving test accuracy to 86.4%.</li>
-              <li>Implemented a YOLOv5 model with more than seven million parameters and achieved precision above 99%.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title teal-text">Embedded OS with Minesweeper</span>
-            <p class="brown-text">C, NIOS II | January 2024 - April 2024</p>
-            <ul>
-              <li>Built Minesweeper as a multithreaded application on a NIOS II soft-core processor.</li>
-              <li>Implemented randomized mines, grid input, flags, tile uncovering, win/loss detection, and restart behavior.</li>
-              <li>Designed dynamic memory management for isolated processes and concurrent application windows.</li>
-            </ul>
-          </div>
+        <div id="project-list" aria-live="polite"></div>
+        <div class="project-controls">
+          <button id="load-more-projects" class="load-more-btn waves-effect" type="button"
+            aria-controls="project-list">Load More</button>
         </div>
       </div>
     </section>
@@ -413,6 +383,97 @@
       typeSpeed: 80,
       backSpeed: 40
     });
+  </script>
+
+  <script>
+    const projects = [
+      {
+        title: "Graphical User Interface System (GIS)",
+        details: "C++, CSS | January 2024 - April 2024",
+        highlights: [
+          "Led a team developing a user-friendly mapping system using OpenStreetMap data.",
+          "Designed responsive map interactions and pop-out information windows with a 0.3-second response time.",
+          "Placed in the top 10 for a travelling-salesman optimization using A*, Dijkstra, and ant colony optimization."
+        ]
+      },
+      {
+        title: "Bank Card Recognition",
+        details: "Python, YOLO, CRNN | August 2024 - December 2024",
+        highlights: [
+          "Developed a deep learning pipeline to recognize card numbers from bank card photos.",
+          "Expanded the dataset from 700 to 3,000 images through preprocessing and augmentation, improving test accuracy to 86.4%.",
+          "Implemented a YOLOv5 model with more than seven million parameters and achieved precision above 99%."
+        ]
+      },
+      {
+        title: "Embedded OS with Minesweeper",
+        details: "C, NIOS II | January 2024 - April 2024",
+        highlights: [
+          "Built Minesweeper as a multithreaded application on a NIOS II soft-core processor.",
+          "Implemented randomized mines, grid input, flags, tile uncovering, win/loss detection, and restart behavior.",
+          "Designed dynamic memory management for isolated processes and concurrent application windows."
+        ]
+      },
+      {
+        title: "Personal Portfolio Website",
+        details: "HTML, CSS, JavaScript | 2026",
+        highlights: [
+          "Built and deployed a responsive portfolio for presenting experience, projects, skills, and education.",
+          "Added an interactive travel map and dynamic project loading with accessible controls.",
+          "Created a consistent custom theme for desktop and mobile layouts."
+        ]
+      }
+    ];
+
+    const projectList = document.getElementById("project-list");
+    const loadMoreProjectsButton = document.getElementById("load-more-projects");
+    let displayedProjectCount = 0;
+
+    function createProjectCard(project) {
+      const card = document.createElement("article");
+      const cardContent = document.createElement("div");
+      const title = document.createElement("span");
+      const details = document.createElement("p");
+      const highlights = document.createElement("ul");
+
+      card.className = "card";
+      cardContent.className = "card-content";
+      title.className = "card-title teal-text";
+      title.textContent = project.title;
+      details.className = "brown-text";
+      details.textContent = project.details;
+
+      project.highlights.forEach(function (highlight) {
+        const item = document.createElement("li");
+        item.textContent = highlight;
+        highlights.appendChild(item);
+      });
+
+      cardContent.appendChild(title);
+      cardContent.appendChild(details);
+      cardContent.appendChild(highlights);
+      card.appendChild(cardContent);
+      return card;
+    }
+
+    function displayProjects(numberToDisplay) {
+      const nextProjects = projects.slice(displayedProjectCount, displayedProjectCount + numberToDisplay);
+
+      nextProjects.forEach(function (project) {
+        projectList.appendChild(createProjectCard(project));
+      });
+
+      displayedProjectCount += nextProjects.length;
+      if (displayedProjectCount >= projects.length) {
+        loadMoreProjectsButton.hidden = true;
+      }
+    }
+
+    loadMoreProjectsButton.addEventListener("click", function () {
+      displayProjects(projects.length - displayedProjectCount);
+    });
+
+    displayProjects(2);
   </script>
 
 
